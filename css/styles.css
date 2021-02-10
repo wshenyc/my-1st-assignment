@@ -130,6 +130,14 @@ ul {
   color: red;
 }
 
-#repLink a {
-  color: #c94c4c;
+.callToAct {
+  display: none;
+}
+
+.callToAct a {
+  color: #ffef96;
+}
+
+.callToAct a:hover {
+  color: red;
 }

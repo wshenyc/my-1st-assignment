@@ -145,9 +145,8 @@ $(document).ready(function() {
         }
       } else {
         var scoreElem = displayScore();
-        var actLink = callToAct();
         quiz.append(scoreElem).fadeIn();
-        quiz.append(actLink).fadeIn();
+        $(document).find(".callToAct").show();
         $('#next').hide();
         $('#prev').hide();
         $('#start').show();
@@ -168,16 +167,7 @@ $(document).ready(function() {
       }
     }
     score.append('You fulfilled ' + numCorrect + ' out of ' +
-      questions.length + ' eligibility requirements. Did you fulfill all requirements? If not, you unfortunately would not have qualified. Did you know NYS has $1.3B in federal aid for rent relief sitting around undistributed? If you think that is a problem, contact your state reps!');
+      questions.length + ' eligibility requirements.');
     return score;
   }
   })();
-
-//Adds link to find your rep website
-
-function callToAct() {
- $(document).find("#repLink").show();
-  var str = "Click here to find out who your representatives are! (For NYC residents)";
-  var result = str.link("https://www.mygovnyc.org/");
-  document.getElementById("repLink").innerHTML = result;
-}
