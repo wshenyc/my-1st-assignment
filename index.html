@@ -4,26 +4,25 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
+  <title>NYS Rent Relief Eligibility Quiz</title>
+  <meta name="description" content="NYS Rent Relief Eligibility Quiz">
   <meta name="author" content="SitePoint">
-
   <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
 <body>
   <div id='title'>
-    <h2>Would You Have Qualified for<br />Rent Relief in New York State?</h2>
+    <h1>Would You Have Qualified for<br />Rent Relief in New York State?</h1>
   </div>
 
   <div class="info">
     <b>FAQ</b>
     <table style="width:100%">
       <tr>
-        <th><a href="https://hcr.ny.gov/RRP">What rent relief program?</a></th>
-        <th><a href="https://hcr.ny.gov/system/files/documents/2020/07/crrp2020_eligible_income_80ami.pdf">What's Area Median Income?</a> </th>
-        <th><a href="https://therealdeal.com/2020/12/21/new-york-could-get-1-3b-for-rent-relief-in-stimulus-package/">What federal aid?</a></th>
+        <th><a href="https://hcr.ny.gov/RRP" target="_blank">What rent relief program?</a></th>
+        <th><a href="https://hcr.ny.gov/system/files/documents/2020/07/crrp2020_eligible_income_80ami.pdf" target="_blank">What's Area Median Income?</a> </th>
+        <th><a href="https://therealdeal.com/2020/12/21/new-york-could-get-1-3b-for-rent-relief-in-stimulus-package/" target="_blank">What federal aid?</a></th>
       </tr>
     </table>
   </div>
@@ -31,27 +30,45 @@
 
   <div class="sources">
     <p>
-      Sources: <a href="https://jsfiddle.net/wshenyc/31nsxftv/86/">JS Fiddle 1</a>, <a href="http://jsfiddle.net/gcarino/x6duP/">JS Fiddle 2</a>, <a href="https://hcr.ny.gov/RRP">NYSHCR</a> and <a href="https://www.usnews.com/news/health-news/articles/2020-03-23/how-coronavirus-made-andrew-cuomo-americas-governor">image</a>.
+      Sources: <a href="https://jsfiddle.net/Markus_Steiger/9dg7bj38/" target="_blank">JS Fiddle 1</a>,
+      <a href="http://jsfiddle.net/gcarino/x6duP/" target="_blank">JS Fiddle 2</a>,
+      <a href="https://hcr.ny.gov/RRP" target="_blank">NYSHCR</a> and <a href="https://www.usnews.com/news/health-news/articles/2020-03-23/how-coronavirus-made-andrew-cuomo-americas-governor" target="_blank">image</a>.
     </p>
   </div>
 
   <div id="background">
-    <img src="https://media.beam.usnews.com/b8/52/7fb2335a43fea78fbe5bb10cb6c7/200323newscuomo-editorial.jpg">
+
 
     <div id='container'>
       <div id='quiz'></div>
-      <div class='button' id='next'><a href='#'>Next</a></div>
-      <div class='button' id='prev'><a href='#'>Prev</a></div>
-      <div class='button' id='start'> <a href='#'>Start Over</a></div>
+      <div class='intro'>
+        <h2>We're in a Housing Crisis</h2>
+        <p>The economic crisis caused by COVID-19 has put nearly <a href="https://nlihc.org/sites/default/files/The_Eviction_Crisis_080720.pdf" target="_blank">
+          40 million people</a> at risk of eviction.
+          In an attempt to keep tenants housed, New York implemented a Rental Relief Program.
+          However, the state only managed to distribute <a href="https://gothamist.com/news/ny-sitting-60-million-federal-rent-relief-weeks-spending-deadline" target="_blank">
+          $40M of the $100M</a> available in federal aid.
+          Not for lack of interest — <a href="https://hcr.ny.gov/system/files/documents/2020/10/covid-rrp-report.pdf" target="_blank">
+            94,000 applications</a> were received — but 60% were denied
+        due to the stringent eligibility requirements. </p>
+
+        <p>Take this short quiz to find out if you would have been one of the lucky few to have qualified.</p>
+      </div>
       <div class="quizMessage"></div>
       <div class="callToAct">
         <p>
         If you didn't fulfill all requirements, that means you unfortunately wouldn't have qualified.
         </p>
         <p>
-        Did you know NYS has $1.3B in federal aid for rent relief laying around undistributed? If you think that's a problem, you should contact your state reps! For NYC residents, find out who that is <a href="https://www.mygovnyc.org/">here</a>!
+        Did you know NYS has $1.3B in federal aid for rent relief laying around undistributed?
+        If you think that's a problem, you should contact your state reps! For NYC residents,
+        find out who that is <a href="https://www.mygovnyc.org/" target="_blank">here</a>!
         </p>
       </div>
+      <div class='button' id='next'><a href='#'>Next</a></div>
+      <div class='button' id='prev'><a href='#'>Prev</a></div>
+      <div class='button' id='begin'><a href='#'>Start!</a></div>
+      <div class='button' id='startOver'> <a href='#'>Start Over?</a></div>
     </div>
   </div>
 

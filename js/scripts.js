@@ -3,7 +3,7 @@ var questions = [{
   choices: ["Yes", "No"],
   correctAnswer: 0
 }, {
-  question: "Have you lost income during the period of April 1, 2020 to July 31, 2020?",
+  question: "Have you lost income during the period of April 1, 2020 to July 31, 2020? (Note: unemployment benefits is considered a source of income.)",
   choices: ["Yes", "No"],
   correctAnswer: 0
 }, {
@@ -21,14 +21,32 @@ var questions = [{
 var questionCounter = 0;
 var selections = []; //Array containing user choices
 var quiz = $('#quiz');
+var quizStart = false;
 
 $(document).ready(function() {
 
 
   $(this).find(".quizMessage").hide();
 
-  // Display initial question
-  displayNext();
+  //Quiz introduction page
+  if (quizStart === false) {
+    $(".intro").show();
+    $("#begin").show();
+    $("#next").hide();
+  }
+
+  $('#begin').on('click', function(e) {
+    e.preventDefault();
+
+    if (quiz.is(':animated')) {
+      return false;
+    }
+    quizStart = true;
+    $(".intro").hide();
+    $("#begin").hide();
+    displayNext();
+  });
+
 
   // Click handler for the 'next' button
   $('#next').on('click', function(e) {
@@ -39,6 +57,7 @@ $(document).ready(function() {
       return false;
     }
     choose();
+
 
     // If no user selection, progress is stopped
     if (isNaN(selections[questionCounter])) {
@@ -64,7 +83,7 @@ $(document).ready(function() {
   });
 
   // Click handler for the 'Start Over' button
-  $('#start').on('click', function(e) {
+  $('#startOver').on('click', function(e) {
     e.preventDefault();
 
     if (quiz.is(':animated')) {
@@ -72,9 +91,12 @@ $(document).ready(function() {
     }
     questionCounter = 0;
     selections = [];
-    displayNext();
-    $('#start').hide();
-    $('#repLink').hide();
+    $('#startOver').hide();
+    $('.callToAct').hide();
+    $('#next').hide();
+    $('#quiz').hide();
+    $('.intro').show();
+    $('#begin').show();
   });
 
   // Animates buttons on hover
@@ -128,9 +150,9 @@ $(document).ready(function() {
     quiz.fadeOut(function() {
       $('#question').remove();
 
-      if (questionCounter < questions.length) {
+      if (questionCounter < questions.length && quizStart == true) {
         var nextQuestion = createQuestionElement(questionCounter);
-        quiz.append(nextQuestion).fadeIn();
+        quiz.append(nextQuestion).show();
         if (!(isNaN(selections[questionCounter]))) {
           $('input[value=' + selections[questionCounter] + ']').prop('checked', true);
         }
@@ -145,11 +167,11 @@ $(document).ready(function() {
         }
       } else {
         var scoreElem = displayScore();
-        quiz.append(scoreElem).fadeIn();
-        $(document).find(".callToAct").show();
+        quiz.append(scoreElem).show();
         $('#next').hide();
         $('#prev').hide();
-        $('#start').show();
+        $('.callToAct').show();
+        $('#startOver').show();
       }
     });
   }
