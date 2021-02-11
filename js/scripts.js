@@ -79,6 +79,7 @@ $(document).ready(function() {
     }
     choose();
     questionCounter--;
+    $(document).find(".quizMessage").hide();
     displayNext();
   });
 
